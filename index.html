@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .form-group {
+        margin-bottom: 10px;
+      }
+      .result {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calculator</h2>
+      <div class="form-group">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" />
+      </div>
+      <div class="form-group">
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" />
+      </div>
+      <div class="form-group">
+        <button id="add">Add</button>
+        <button id="subtract">Subtract</button>
+        <button id="multiply">Multiply</button>
+        <button id="divide">Divide</button>
+      </div>
+    </div>
+    <div class="result">
+      Result:
+      <span id="resultValue"></span>
+    </div>
+    <script>
+     //Get the number inputs and result element
+const num1Input = document.getElementById("num1");
+const num2Input = document.getElementById("num2");
+const resultElement = document.getElementById("resultValue");
+
+//Get the operation buttons
+const addButton = document.getElementById("add");
+const subtractButton = document.getElementById("subtract");
+const multiplyButton = document.getElementById("multiply");
+const divideButton = document.getElementById("divide");
+
+//Add event listeners to the buttons
+addButton.addEventListener("click", () => performCalculation("add"));
+subtractButton.addEventListener("click", () => performCalculation("subtract"));
+multiplyButton.addEventListener("click", () => performCalculation("multiply"));
+divideButton.addEventListener("click", () => performCalculation("divide"));
+
+function performCalculation(operation) {
+  const num1 = Number(num1Input.value);
+  const num2 = Number(num2Input.value);
+  let result;
+  switch (operation) {
+    case "add":
+      result = num1 + num2;
+      break;
+    case "subtract":
+      result = num1 - num2;
+      break;
+    case "multiply":
+      result = num1 * num2;
+      break;
+    case "divide":
+      result = num1 / num2;
+      break;
+    default:
+      result = "Invalid operation";
+  }
+  resultElement.innerText = result;
+}
+   </script>
+  </body>
+</html>
+
